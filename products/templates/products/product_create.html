@@ -1,0 +1,18 @@
+{% extends 'products/base.html' %}
+{% load rest_framework %}
+
+{% block content %}
+<div class="card text-center">
+    <div class="card-header">
+      Create a new product item
+    </div>
+    <div class="card-body">
+      <form action="{% url 'create_item' %}" method="POST">
+        {% csrf_token %}
+        {% render_form serializer %}
+        <input type="submit" value="Save">
+      </form>
+       
+    </div>
+</div>
+{% endblock %}
